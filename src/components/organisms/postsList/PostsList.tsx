@@ -25,7 +25,9 @@ export const PostList: FC<PostsListI> = ({header, postsList}) => {
     return (
         <section>
             <Header text={header}/>
-            {renderPostsList()}
+            <div className={styles.postList}>
+                {renderPostsList()}
+            </div>
         </section>
     )
 }
