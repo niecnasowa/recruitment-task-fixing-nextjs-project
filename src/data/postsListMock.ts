@@ -26,10 +26,13 @@ const postListMock: PostListT = [];
 
 for (let iterator = 0; iterator < 5; iterator++) {
 
-    postListMock.push(Object.assign(postMock, {
+    postListMock.push({
+        ...postMock,
         id: iterator,
         date: format(new Date(2023, 1, iterator), dateFormat),
-    }))
+    })
 }
+
+export const postListTitle = "Check our latest Posts";
 
 export default postListMock;
