@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import placeholder from '../../public/assets/placeholder.jpg';
 
 type CategoryT = 'news' | 'post';
 
@@ -9,6 +10,7 @@ export type PostT = {
     shortDescription: string;
     id: number;
     date: string;
+    image: string;
 }
 
 export type PostListT = PostT[];
@@ -19,7 +21,8 @@ const postMock = {
     title: 'Case Study',
     category: 'news' as CategoryT,
     author: 'user',
-    shortDescription: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'
+    shortDescription: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
+    image: placeholder.src,
 }
 
 const postListMock: PostListT = [];

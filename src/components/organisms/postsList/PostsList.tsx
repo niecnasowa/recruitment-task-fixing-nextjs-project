@@ -10,7 +10,7 @@ interface PostsListI {
 }
 
 export const PostList: FC<PostsListI> = ({header, postsList}) => {
-    const renderPostsList = () => postsList.map(({title, category, author, shortDescription, id, date}) => (
+    const renderPostsList = () => postsList.map(({title, category, author, shortDescription, id, date, image}) => (
         <PostElement
             key={id}
             title={title}
@@ -19,6 +19,7 @@ export const PostList: FC<PostsListI> = ({header, postsList}) => {
             shortDescription={shortDescription}
             id={id}
             date={date}
+            image={image}
         />
     ));
 
