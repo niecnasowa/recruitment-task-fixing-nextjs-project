@@ -10,7 +10,7 @@ interface PostDetailsPropsI {
     postDetails: PostT;
 }
 
-export const PostDetails: FC<PostDetailsPropsI> = ({ postDetails: { title, shortDescription, image, date}}) => {
+export const PostDetails: FC<PostDetailsPropsI> = ({ postDetails: { title, shortDescription, image, date, text}}) => {
     return (
         <section>
             <Header text={title} type="center" />
@@ -19,6 +19,7 @@ export const PostDetails: FC<PostDetailsPropsI> = ({ postDetails: { title, short
                 {format(new Date(date), dateFormat)}
             </span>
             <Image src={image} alt={""} width={1020} height={703} style={{ maxWidth: '100%', borderRadius: '10px', height: 'auto', objectFit: 'contain', position: 'relative', margin: '0 auto', display: 'block' }} />
+            <PostDescription text={text} extraStyle={styles.postTextExtraStyle}/>
         </section>
     )
 }
