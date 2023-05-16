@@ -10,7 +10,9 @@ interface PostsListI {
 }
 
 export const PostList: FC<PostsListI> = ({header, postsList}) => {
-    const renderPostsList = () => postsList.map(({title, category, author, shortDescription, id, date, image}) => (
+    const sortedPostsList = postsList.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    const renderPostsList = () => sortedPostsList.map(({title, category, author, shortDescription, id, date, image}) => (
         <PostElement
             key={id}
             title={title}

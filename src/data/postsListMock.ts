@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import placeholder from '../../public/assets/placeholder.jpg';
 
 type CategoryT = 'news' | 'post';
@@ -9,13 +8,13 @@ export type PostT = {
     author: string;
     shortDescription: string;
     id: number;
-    date: string;
+    date: Date;
     image: string;
 }
 
 export type PostListT = PostT[];
 
-const dateFormat = "dd MMM yyy";
+export const dateFormat = "dd MMM yyy";
 
 const postMock = {
     title: 'Case Study',
@@ -32,7 +31,7 @@ for (let iterator = 0; iterator < 5; iterator++) {
     postListMock.push({
         ...postMock,
         id: iterator,
-        date: format(new Date(2023, 1, iterator), dateFormat),
+        date: new Date(2023, 1, iterator),
     })
 }
 

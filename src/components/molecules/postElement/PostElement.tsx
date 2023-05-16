@@ -1,7 +1,9 @@
 import React, { FC } from "react";
 import Image from 'next/image';
+import { format } from 'date-fns';
 import styles from './PostElement.module.sass';
-import { PostT } from "../../../data/postsListMock";
+import { PostT, dateFormat } from "../../../data/postsListMock";
+
 
 export const PostElement: FC<PostT> = ({ title, category, author, shortDescription, date, image}) => {
     return (
@@ -16,7 +18,7 @@ export const PostElement: FC<PostT> = ({ title, category, author, shortDescripti
                     {author}
                 </span>
                 <span className={styles.postElementLabel}>
-                    {date}
+                    {format(new Date(date), dateFormat)}
                 </span>
             </div>
             <p className={styles.postElementDescription}>
