@@ -1,8 +1,13 @@
 import React, { FC } from 'react';
+import { GetServerSidePropsContext } from 'next';
 import { Layout } from "../../components/layout";
+import { PostT } from "../../data/postsListMock";
 
+interface BlogPostPropsI {
+    postDetails: PostT;
+}
 
-const BlogPost: FC = () => {
+const BlogPost: FC<BlogPostPropsI> = () => {
     return (
         <Layout>
             Post
@@ -10,13 +15,14 @@ const BlogPost: FC = () => {
     )
 }
 
-export async function getServerSideProps() {
-    const response = await fetch('http://localhost:3000/api/postList');
-    const postsList = await response.json();
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+    const { id } = context.query;
+    const response = await fetch(`http://localhost:3000/api/postDetails?id=${id}`);
+    const postDetails = await response.json();
 
     return {
         props: {
-            postsList
+            postDetails
         }
     };
 }
