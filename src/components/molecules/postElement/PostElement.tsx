@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 import styles from './PostElement.module.sass';
 import { PostT, dateFormat } from "../../../data/postsListMock";
+import { PostDescription } from "@/atoms/postDescription/PostDescription";
 
 
 export const PostElement: FC<PostT> = ({ title, category, author, shortDescription, date, image, id}) => {
@@ -23,9 +24,7 @@ export const PostElement: FC<PostT> = ({ title, category, author, shortDescripti
                     {format(new Date(date), dateFormat)}
                 </span>
                 </div>
-                <p className={styles.postElementDescription}>
-                    {shortDescription}
-                </p>
+                <PostDescription text={shortDescription} />
             </Link>
         </article>
     )

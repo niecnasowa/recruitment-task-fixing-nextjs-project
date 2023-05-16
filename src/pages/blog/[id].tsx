@@ -2,15 +2,16 @@ import React, { FC } from 'react';
 import { GetServerSidePropsContext } from 'next';
 import { Layout } from "../../components/layout";
 import { PostT } from "../../data/postsListMock";
+import { PostDetails } from "../../components/organisms/postDetails/PostDetails";
 
 interface BlogPostPropsI {
     postDetails: PostT;
 }
 
-const BlogPost: FC<BlogPostPropsI> = () => {
+const BlogPost: FC<BlogPostPropsI> = ({ postDetails}) => {
     return (
         <Layout>
-            Post
+            <PostDetails postDetails={postDetails} />
         </Layout>
     )
 }

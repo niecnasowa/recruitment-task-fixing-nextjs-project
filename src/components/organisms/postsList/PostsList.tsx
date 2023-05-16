@@ -1,15 +1,15 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import styles from './PostsList.module.sass';
-import {PostListT} from "../../../data/postsListMock";
-import {Header} from "@/atoms/header/Header";
-import {PostElement} from "@/molecules/postElement/PostElement";
+import { PostListT } from "../../../data/postsListMock";
+import { Header } from "@/atoms/header/Header";
+import { PostElement } from "@/molecules/postElement/PostElement";
 
-interface PostsListI {
+interface PostsListPropsI {
     header: string;
     postsList: PostListT;
 }
 
-export const PostList: FC<PostsListI> = ({header, postsList}) => {
+export const PostList: FC<PostsListPropsI> = ({header, postsList}) => {
     const sortedPostsList = postsList.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     const renderPostsList = () => sortedPostsList.map(({title, category, author, shortDescription, id, date, image}) => (
