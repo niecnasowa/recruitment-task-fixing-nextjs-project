@@ -1,0 +1,28 @@
+@import /src/styles/base/vars
+
+.title
+  font-style: normal
+  font-weight: 600
+  font-size: 64px
+  line-height: normal
+  color: $primary
+
+  &.titleSmall
+    font-size: 58px
+    font-weight: 700
+    line-height: 57px
+    margin-bottom: 12px
+
+    // Could be optimized and united 
+    @media (max-width: $mobileBreakPoint)
+      font-size: 42px
+      text-align: center
+      line-height: 51px
+
+  @media (max-width: $mobileBreakPoint)
+    font-size: 42px
+    text-align: center
+    line-height: 51px
+
+.titleCenter
+  text-align: center

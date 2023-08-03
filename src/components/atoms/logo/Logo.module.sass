@@ -1,6 +1,10 @@
+@import /src/styles/base/vars
+
 .logo
-  width: 200px
-  padding: 12px 24px 12px 0
+  width: 250px
+
+  @media (max-width: $mobileBreakPoint)
+    width: 170px
 
   svg
     fill: white

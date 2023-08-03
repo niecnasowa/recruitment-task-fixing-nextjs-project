@@ -1,0 +1,17 @@
+@import /src/styles/base/vars
+
+.header
+  background-color: $primary
+  height: 80px
+  display: flex
+  align-items: center
+
+  .container
+    max-width: 1440px
+    width: 100%
+    padding: 0 130px
+    margin: auto
+    box-sizing: border-box
+
+    @media (max-width: $mobileBreakPoint)
+      padding: 0 12px

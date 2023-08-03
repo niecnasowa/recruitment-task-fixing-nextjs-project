@@ -1,28 +1,40 @@
+@import /src/styles/base/vars
+
 .postDetails
   display: block
-
-.postDetailsDate
-  text-align: center
-  font-family: 'Inter', sans-serif
-  font-style: normal
-  font-weight: 700
-  font-size: 14px
-  line-height: 60px
-  color: #828282
-  margin: 37px 0 30px
-  display: block
   width: 100%
-
-.postDescriptionExtraStyle
-  max-width: 456px
-  display: block
+  max-width: 1020px
   margin: 0 auto
 
-.postTextExtraStyle
-  color: #000000!important
+.postDescriptionExtraClass
+  max-width: 456px
+  margin: 0 auto
+
+  @media (max-width: $mobileBreakPoint)
+    font-size: 14px
+    line-height: 22px
+
+.postPreviewImage
+  border-radius: 10px
+  max-width: 100%
+  height: auto
+
+  @media (max-width: $mobileBreakPoint)
+    width: 100%
+    height: auto
+
+.postTextExtraClass
+  padding-top: 20px
+  padding-bottom: 88px
+  color: $black
   font-size: 16px
+  font-style: normal
+  font-weight: 700
   line-height: 24px
-  max-width: 665px
   display: block
-  margin: 70px auto
-  font-family: 'Inter', sans-serif!important
+  max-width: 656px
+  margin: 0 auto
+
+  @media (max-width: $mobileBreakPoint)
+    font-size: 14px
+    line-height: 22px

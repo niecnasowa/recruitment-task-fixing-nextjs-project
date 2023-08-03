@@ -7,11 +7,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.pexels.com',
-        port: '',
+        port: '80',
         pathname: '/photos/39866',
       },
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

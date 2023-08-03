@@ -1,0 +1,66 @@
+@import /src/styles/base/vars
+
+.postPreview
+  width: 344px
+  transition: background-color 200ms linear
+  margin-bottom: 34px
+
+  @media (max-width: $mobileBreakPoint)
+    margin-bottom: 0
+    width: 100%
+
+  @media (max-width: $mobileBreakPoint)
+    width: 100%
+
+  .postPreviewLink
+    text-decoration: none
+
+  .postPreviewImage
+    border-radius: 10px
+
+    @media (max-width: $mobileBreakPoint)
+      width: 100%
+      height: auto
+
+  .postPreviewTitle
+    color: $tertiary
+    font-style: normal
+    font-weight: 600
+    font-size: 24px
+    line-height: 30px
+    margin-bottom: 17px
+
+  .postPreviewLabelsContainer
+    display: flex
+    margin-bottom: 16px
+
+  .postPreviewLabel
+    font-style: normal
+    font-weight: 700
+    font-size: 14px
+    display: flex
+    align-items: center
+    text-align: center
+    letter-spacing: 1px
+    color: $primary
+    background: rgba(255, 102, 0, 0.08)
+    border-radius: 16px
+    padding: 6px 12px
+    margin-right: 20px
+
+    &:last-child
+      margin-right: 0
+      margin-left: auto
+
+  .postPreviewDateMobile
+    display: none
+
+    @media (max-width: $mobileBreakPoint)
+      display: block
+      text-align: left
+
+  .hideOnMobile
+    display: flex
+
+    @media (max-width: $mobileBreakPoint)
+      display: none

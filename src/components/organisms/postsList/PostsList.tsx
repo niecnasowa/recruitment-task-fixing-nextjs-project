@@ -1,36 +1,32 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from 'react';
 import styles from './PostsList.module.sass';
-import { PostListT } from "../../../data/postsListMock";
-import { Header } from "@/atoms/header/Header";
-import { PostElement } from "@/molecules/postElement/PostElement";
+import { Title } from '@/components/atoms';
+import { PostPreview } from '@/components/molecules';
+import { Post } from '@/types/post';
 
-interface PostsListPropsI {
-    header: string;
-    postsList: PostListT;
+interface PostsListProps {
+  header: string;
+  postsList: Post[];
 }
 
-export const PostList: FC<PostsListPropsI> = ({header, postsList}) => {
-    const sortedPostsList = postsList.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+export const PostList: FC<PostsListProps> = ({ header, postsList }) => {
+  // Add useMemo to prevent recalculating value when is not needed
+  const sortedPostsList = useMemo(
+    () =>
+      postsList.sort(
+        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+      ),
+    [postsList]
+  );
 
-    const renderPostsList = () => sortedPostsList.map(({title, category, author, shortDescription, id, date, image}) => (
-        <PostElement
-            key={id}
-            title={title}
-            category={category}
-            author={author}
-            shortDescription={shortDescription}
-            id={id}
-            date={date}
-            image={image}
-        />
-    ));
-
-    return (
-        <section>
-            <Header text={header}/>
-            <div className={styles.postList}>
-                {renderPostsList()}
-            </div>
-        </section>
-    )
-}
+  return (
+    <section>
+      <Title text={header} />
+      <div className={styles.postList}>
+        {sortedPostsList.map((postItem) => (
+          <PostPreview key={postItem.id} {...postItem} />
+        ))}
+      </div>
+    </section>
+  );
+};

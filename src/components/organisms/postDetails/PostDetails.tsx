@@ -1,25 +1,34 @@
-import React, { FC } from "react";
-import styles from './PostDetails.module.sass'
-import { PostT , dateFormat} from "../../../data/postsListMock";
-import { Header } from "@/atoms/header/Header";
-import { PostDescription } from "@/atoms/postDescription/PostDescription";
-import Image from "next/image";
-import { format } from 'date-fns';
+import Image from 'next/image';
+import React, { FC } from 'react';
+import { Title, PostDescription, ShowDate } from '@/components/atoms';
+import { Post } from '@/types/post';
+import styles from './PostDetails.module.sass';
 
-interface PostDetailsPropsI {
-    postDetails: PostT;
+interface PostDetailsProps {
+  postDetails: Post;
 }
 
-export const PostDetails: FC<PostDetailsPropsI> = ({ postDetails: { title, shortDescription, image, date, text}}) => {
-    return (
-        <section>
-            <Header text={title} type="center" />
-            <PostDescription text={shortDescription} type="center" extraStyle={styles.postDescriptionExtraStyle}/>
-            <span className={styles.postDetailsDate}>
-                {format(new Date(date), dateFormat)}
-            </span>
-            <Image src={image} alt={""} width={1020} height={703} style={{ maxWidth: '100%', borderRadius: '10px', height: 'auto', objectFit: 'contain', position: 'relative', margin: '0 auto', display: 'block' }} />
-            <PostDescription text={text} extraStyle={styles.postTextExtraStyle}/>
-        </section>
-    )
-}
+export const PostDetails: FC<PostDetailsProps> = ({
+  postDetails: { title, shortDescription, image, date, text },
+}) => {
+  return (
+    <section className={styles.postDetails}>
+      <Title text={title} type="center" size="small" />
+      <PostDescription
+        text={shortDescription}
+        type="center"
+        extraClass={styles.postDescriptionExtraClass}
+      />
+      <ShowDate date={date} />
+      <Image
+        src={image}
+        alt="Post image"
+        width={1020}
+        height={703}
+        className={styles.postPreviewImage}
+        priority
+      />
+      <PostDescription text={text} extraClass={styles.postTextExtraClass} />
+    </section>
+  );
+};

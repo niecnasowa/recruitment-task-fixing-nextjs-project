@@ -1,4 +1,13 @@
+@import /src/styles/base/vars
+
 .postList
-  display: flex
-  gap: 74px
-  flex-wrap: wrap
+  display: grid
+  grid-template-columns: repeat(auto-fill, 344px)
+  grid-gap: 10px
+  justify-content: space-between
+
+  @media (max-width: $mobileBreakPoint)
+    display: block
+    grid-template-columns: unset
+    grid-gap: unset
+    justify-content: unset
