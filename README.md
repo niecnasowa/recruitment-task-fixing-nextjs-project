@@ -28,7 +28,7 @@ In the project directory, you can run:
 
 I have also deployed the app to vercel, you can check it here:
 
-#### [#](#)
+#### [https://recruitment-task-fixing-nextjs-project.vercel.app/](https://recruitment-task-fixing-nextjs-project.vercel.app/)
 
 #### env variables
 
